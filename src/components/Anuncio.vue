@@ -1,6 +1,6 @@
 <template>
     <div class="anuncio">
-        <span v-once>{{presentaciones[indice] }}</span>
+        <span>{{presentaciones[indice] }}</span>
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 
             if(this.indice == this.presentaciones.length) {
                 this.indice  = 0
-                this.$destroy()
+                // this.$destroy()
             }
         }
     },
