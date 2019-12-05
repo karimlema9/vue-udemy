@@ -1,5 +1,5 @@
 <template>
-    <div class="anuncio">
+    <div v-once class="anuncio">
         <span>{{presentaciones[indice] }}</span>
     </div>
 </template>

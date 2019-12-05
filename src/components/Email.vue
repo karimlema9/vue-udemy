@@ -1,26 +1,27 @@
 <template>
     <div class="seccion">
         <div class="atributo">
-            <input @keyup.enter="actualitzarEmail" type="text">
-        </div>
-        <div class="aributo email">
-            <span>
-                Email: {{ email }}
-            </span>
+            <input v-model="email" @keyup.enter="actualitzarEmail" type="text">
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['emailRecibido'],
     data() {
         return {
             email: ''
         }
     },
     methods: {
-        actualitzarEmail(event) {
-            this.email = event.target.value
+        actualitzarEmail() {
+            this.$emit('onCambioEmail', this.email)
+        }
+    },
+    watch: {
+        emailRecibido() {
+            this.email = this.emailRecibido
         }
     }
 }

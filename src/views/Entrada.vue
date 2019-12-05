@@ -1,8 +1,8 @@
 <template>
     <div>
         <anuncio/>
-        <cliente/>
-        <email/>
+        <cliente :email="email" @onCambioEmail="actualizarEmail"/>
+        <email :emailRecibido="email" @onCambioEmail="actualizarEmail"/>
         <firma/>
         <boletos/>
     </div>
@@ -23,6 +23,16 @@ export default {
         Boletos,
         Firma,
         Email
+    },
+    data() {
+        return {
+            email: ''
+        }
+    },
+    methods: {
+        actualizarEmail(email) {
+            this.email = email
+        }
     }
 }
 </script>

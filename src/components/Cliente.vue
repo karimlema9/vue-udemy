@@ -12,11 +12,15 @@
         <div class="atributo">
             <span>Edad: {{ edad }}</span>
         </div>
+        <div class="atributo">
+            <span>Email: {{ email }}</span>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['email'],
     data() {
         return {
             nombres: 'Karim',
@@ -40,6 +44,9 @@ export default {
             let diferencia = fechaActual - fecha
             return Math.floor(diferencia / (1000 * 60 * 60 * 24 * 365.25))
         }
+    },
+    created() {
+        this.$emit('onCambioEmail', 'karim@gmail.com')
     }
 }
 </script>
